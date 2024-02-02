@@ -14,6 +14,7 @@ import java.util.Scanner;
 
 public class TicTacToe
 {
+    private TicTacToeViewer window;
     /** Board Markers **/
     public static final String X_MARKER = "X";
     public static final String O_MARKER = "O";
@@ -51,11 +52,14 @@ public class TicTacToe
         }
 
         // Initialize winning stats variables
+
         this.isGameOver = false;
         this.turn = 0;
         this.winner = BLANK;
         this.winIndex = -1;
         this.winDirection = -1;
+        this.window = new TicTacToeViewer(board);
+
     }
 
     /******************** Methods You May Find Helpful ********************/
@@ -119,6 +123,7 @@ public class TicTacToe
             } else {
                 System.out.println("That space is taken, or you entered an invalid row/col");
             }
+            window.repaint();
         }
 
         this.printBoard();
