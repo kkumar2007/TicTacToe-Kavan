@@ -45,9 +45,10 @@ public class TicTacToe
     public TicTacToe() {
         // Initialize Squares in the board
         this.board = new Square[3][3];
+        window = new TicTacToeViewer(this);
         for(int row = 0; row < this.board.length; row++) {
             for(int col = 0; col< this.board[row].length; col++) {
-                this.board[row][col] = new Square(row, col);
+                this.board[row][col] = new Square(row, col, this, window);
             }
         }
 
@@ -58,7 +59,6 @@ public class TicTacToe
         this.winner = BLANK;
         this.winIndex = -1;
         this.winDirection = -1;
-        this.window = new TicTacToeViewer(board);
 
     }
 

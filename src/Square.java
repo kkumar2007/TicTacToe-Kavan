@@ -18,6 +18,8 @@ public class Square {
     private int row;
     private int col;
     private boolean isWinningSquare;
+    TicTacToe tic;
+    TicTacToeViewer tac;
 
     /**
      * Constructor to initialize one Square of the
@@ -25,9 +27,11 @@ public class Square {
      * @param row the row the square is in
      * @param col the column the square is in
      */
-    public Square(int row, int col) {
+    public Square(int row, int col, TicTacToe tic, TicTacToeViewer tac) {
         this.row = row;
         this.col = col;
+        this.tic = tic;
+        this.tac = tac;
 
         this.marker = TicTacToe.BLANK;
         this.isWinningSquare = false;
@@ -61,8 +65,13 @@ public class Square {
         return this.marker;
     }
 
-    public void draw(Graphics g, int x, int y, int size, TicTacToeViewer ref)
+    public void draw(Graphics g, int x, int y, int size)
     {
+        if (isWinningSquare) {
+            // Draw green background
+            g.setColor(Color.GREEN);
+            g.fillRect(x, y, size, size);
+        }
         g.setColor(Color.BLACK);
         Image one = new ImageIcon("Resources/X.png").getImage();
         Image two = new ImageIcon("Resources/O.png").getImage();
@@ -70,9 +79,9 @@ public class Square {
         g.drawRect(x, y, size, size);
         if (marker.equals(TicTacToe.X_MARKER)) {
             // Draw X image
-            g.drawImage(one, x, y, size, size, ref);
+            g.drawImage(one, x, y, size, size, tac);
         } else if (marker.equals(TicTacToe.O_MARKER)) {
-            g.drawImage(two, x, y, size, size, ref);
+            g.drawImage(two, x, y, size, size, tac);
         }
 
 
