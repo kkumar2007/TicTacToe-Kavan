@@ -18,8 +18,8 @@ public class Square {
     private int row;
     private int col;
     private boolean isWinningSquare;
-    TicTacToe tic;
-    TicTacToeViewer tac;
+    private TicTacToe tic;
+    private TicTacToeViewer tac;
 
     /**
      * Constructor to initialize one Square of the
@@ -82,6 +82,18 @@ public class Square {
             g.drawImage(one, x, y, size, size, tac);
         } else if (marker.equals(TicTacToe.O_MARKER)) {
             g.drawImage(two, x, y, size, size, tac);
+        }
+        if(tic.getGameOver() && tic.getWinner().equals("X")){
+            g.setColor(Color.BLACK);
+            g.drawString("X Wins", 400, 600);
+        }
+        else if(tic.getGameOver()  && tic.getWinner().equals("O")){
+            g.setColor(Color.BLACK);
+            g.drawString("O Wins", 400, 600);
+        }
+        else if (tic.getGameOver() && tic.checkTie()) {
+            g.setColor(Color.BLACK);
+            g.drawString("Tie", 400,600);
         }
 
 

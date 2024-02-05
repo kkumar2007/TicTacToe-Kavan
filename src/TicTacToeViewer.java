@@ -18,26 +18,25 @@ public class TicTacToeViewer extends JFrame {
     }
 
     public void paint(Graphics g) {
-        int x = 300;
-        int y = 300;
-        for (int i = 0; i < 3; i++) {
-            String numbers = String.valueOf(i);
-            g.setFont(new Font("Serif", Font.PLAIN, 30));
-            g.drawString(numbers, x, y);
-            y += 100;
-        }
 
-
-        x = 400;
-        y = 200;
+        int x = X_OFFSET+20;
+        int y = Y_OFFSET-30;
         for (int j = 0; j < 3; j++) {
-            String numbers = String.valueOf(j);
-            g.setFont(new Font("Serif", Font.PLAIN, 30));
-            g.drawString(numbers, x, y);
-            x += 100;
-
+            String n2 = String.valueOf(j);
+            g.setFont(new Font("Serif", Font.PLAIN, 35));
+            g.drawString(n2, x, y);
+            x += BOX_SIZE+50;
 
         }
+        x = 50;
+        y = 200;
+        for (int i = 0; i < 3; i++) {
+            String n = String.valueOf(i);
+            g.setFont(new Font("Serif", Font.PLAIN, 35));
+            g.drawString(n, x, y);
+            y += 200;
+        }
+
 //fix
         board = game.getBoard();
         if (board != null) {
