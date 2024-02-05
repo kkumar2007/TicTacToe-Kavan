@@ -24,6 +24,7 @@ public class TicTacToeViewer extends JFrame {
         for (int j = 0; j < 3; j++) {
             String n2 = String.valueOf(j);
             g.setFont(new Font("Serif", Font.PLAIN, 35));
+            g.setColor(Color.RED);
             g.drawString(n2, x, y);
             x += BOX_SIZE+50;
 
@@ -38,7 +39,6 @@ public class TicTacToeViewer extends JFrame {
         }
 
 //fix
-        board = game.getBoard();
         if (board != null) {
             for (int i = 0; i < board.length; i++) {
                 for (int j = 0; j < board[0].length; j++) {

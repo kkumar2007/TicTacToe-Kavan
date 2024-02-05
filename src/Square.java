@@ -83,17 +83,17 @@ public class Square {
         } else if (marker.equals(TicTacToe.O_MARKER)) {
             g.drawImage(two, x, y, size, size, tac);
         }
-        if(tic.getGameOver() && tic.getWinner().equals("X")){
+        if(tic.getGameOver() && tic.getWinner().equals(TicTacToe.X_MARKER)){
             g.setColor(Color.BLACK);
-            g.drawString("X Wins", 400, 600);
+            g.drawString("X Wins", 300, 750);
         }
-        else if(tic.getGameOver()  && tic.getWinner().equals("O")){
+        else if(tic.getGameOver()  && tic.getWinner().equals(TicTacToe.O_MARKER)){
             g.setColor(Color.BLACK);
-            g.drawString("O Wins", 400, 600);
+            g.drawString("O Wins", 300, 750);
         }
         else if (tic.getGameOver() && tic.checkTie()) {
             g.setColor(Color.BLACK);
-            g.drawString("Tie", 400,600);
+            g.drawString("Tie", 300,750);
         }
 
 
